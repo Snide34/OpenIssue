@@ -1,0 +1,351 @@
+<!doctype html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Complete Component Library - OpenIssue</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="../styles/main.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Grid Background -->
+    <div class="grid-background"></div>
+
+    <!-- Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <main id="main-content" class="relative z-10 pt-12 pb-16 px-8 max-w-screen-2xl mx-auto">
+        <!-- Header -->
+        <header class="mb-12">
+            <h1 class="text-display font-headline mb-4">
+                <span class="text-gradient-primary">Complete</span> Component Library
+            </h1>
+            <p class="text-body-large text-on-surface-variant max-w-2xl">
+                Every component you need for a production-ready application
+            </p>
+        </header>
+
+        <!-- Alerts -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">Alerts</h2>
+            <div class="space-y-4">
+                <div class="alert info">
+                    <span class="alert-icon material-symbols-outlined">info</span>
+                    <div class="alert-content">
+                        <div class="alert-title">Information</div>
+                        <div class="alert-message">This is an informational message</div>
+                    </div>
+                </div>
+                <div class="alert success">
+                    <span class="alert-icon material-symbols-outlined">check_circle</span>
+                    <div class="alert-content">
+                        <div class="alert-title">Success</div>
+                        <div class="alert-message">Your changes have been saved successfully</div>
+                    </div>
+                </div>
+                <div class="alert warning">
+                    <span class="alert-icon material-symbols-outlined">warning</span>
+                    <div class="alert-content">
+                        <div class="alert-title">Warning</div>
+                        <div class="alert-message">Please review your settings before continuing</div>
+                    </div>
+                </div>
+                <div class="alert error">
+                    <span class="alert-icon material-symbols-outlined">error</span>
+                    <div class="alert-content">
+                        <div class="alert-title">Error</div>
+                        <div class="alert-message">Something went wrong. Please try again</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- States -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">States</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Loading State -->
+                <div class="glass-card p-6">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <div class="loading-text">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="glass-card p-6">
+                    <div class="empty-state">
+                        <div class="empty-icon">
+                            <span class="material-symbols-outlined">inbox</span>
+                        </div>
+                        <div class="empty-title">No items found</div>
+                        <div class="empty-message">Get started by creating your first item</div>
+                        <button class="btn-primary-gradient text-xs">Create Item</button>
+                    </div>
+                </div>
+
+                <!-- Error State -->
+                <div class="glass-card p-6">
+                    <div class="error-state">
+                        <div class="error-icon">
+                            <span class="material-symbols-outlined">error</span>
+                        </div>
+                        <div class="error-title">Error</div>
+                        <div class="error-message">Failed to load data</div>
+                        <button class="btn-secondary text-xs">Retry</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Controls -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">Form Controls</h2>
+            <div class="glass-panel p-8 rounded-xl space-y-6">
+                <!-- Checkbox -->
+                <div>
+                    <p class="text-sm text-on-surface-variant mb-3 font-label">Checkboxes</p>
+                    <div class="flex flex-wrap gap-4">
+                        <label class="checkbox">
+                            <input type="checkbox" checked/>
+                            <span class="checkbox-label">Option 1</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox"/>
+                            <span class="checkbox-label">Option 2</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox"/>
+                            <span class="checkbox-label">Option 3</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="divider-gradient"></div>
+
+                <!-- Radio -->
+                <div>
+                    <p class="text-sm text-on-surface-variant mb-3 font-label">Radio Buttons</p>
+                    <div class="flex flex-wrap gap-4">
+                        <label class="radio">
+                            <input type="radio" name="radio-group" checked/>
+                            <span class="radio-label">Choice A</span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="radio-group"/>
+                            <span class="radio-label">Choice B</span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="radio-group"/>
+                            <span class="radio-label">Choice C</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="divider-gradient"></div>
+
+                <!-- Switch -->
+                <div>
+                    <p class="text-sm text-on-surface-variant mb-3 font-label">Toggle Switch</p>
+                    <div class="flex items-center gap-3">
+                        <label class="switch">
+                            <input type="checkbox" checked/>
+                            <span class="switch-slider"></span>
+                        </label>
+                        <span class="text-sm">Enable notifications</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">Tabs</h2>
+            <div class="glass-panel p-8 rounded-xl">
+                <div class="tabs">
+                    <ul class="tabs-list">
+                        <li class="tab-item active" data-tab="tab1">Overview</li>
+                        <li class="tab-item" data-tab="tab2">Details</li>
+                        <li class="tab-item" data-tab="tab3">Settings</li>
+                    </ul>
+                </div>
+                <div class="tab-content active" id="tab1">
+                    <p class="text-on-surface-variant">Overview content goes here...</p>
+                </div>
+                <div class="tab-content" id="tab2">
+                    <p class="text-on-surface-variant">Details content goes here...</p>
+                </div>
+                <div class="tab-content" id="tab3">
+                    <p class="text-on-surface-variant">Settings content goes here...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accordion -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">Accordion</h2>
+            <div class="space-y-3">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-title">What is OpenIssue?</span>
+                        <span class="accordion-icon material-symbols-outlined">expand_more</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            OpenIssue is an AI-powered GitHub issue intelligence platform that helps you manage and analyze your repository issues efficiently.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-title">How does it work?</span>
+                        <span class="accordion-icon material-symbols-outlined">expand_more</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            It uses machine learning to classify issues, detect duplicates, and prioritize tasks automatically.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avatars & Chips -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">Avatars & Chips</h2>
+            <div class="glass-panel p-8 rounded-xl space-y-6">
+                <div>
+                    <p class="text-sm text-on-surface-variant mb-3 font-label">Avatars</p>
+                    <div class="flex items-center gap-4">
+                        <div class="avatar avatar-sm">JD</div>
+                        <div class="avatar">AB</div>
+                        <div class="avatar avatar-lg">XY</div>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-sm text-on-surface-variant mb-3 font-label">Avatar Group</p>
+                    <div class="avatar-group">
+                        <div class="avatar">A</div>
+                        <div class="avatar">B</div>
+                        <div class="avatar">C</div>
+                        <div class="avatar">+5</div>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-sm text-on-surface-variant mb-3 font-label">Chips/Tags</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="chip">
+                            TypeScript
+                            <button class="chip-close">
+                                <span class="material-symbols-outlined" style="font-size: 16px;">close</span>
+                            </button>
+                        </span>
+                        <span class="chip">React</span>
+                        <span class="chip">Node.js</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pagination & Breadcrumbs -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">Navigation</h2>
+            <div class="glass-panel p-8 rounded-xl space-y-6">
+                <div>
+                    <p class="text-sm text-on-surface-variant mb-3 font-label">Breadcrumbs</p>
+                    <nav class="breadcrumbs">
+                        <a href="#" class="breadcrumb-item">Home</a>
+                        <span class="breadcrumb-separator">/</span>
+                        <a href="#" class="breadcrumb-item">Projects</a>
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="breadcrumb-item active">OpenIssue</span>
+                    </nav>
+                </div>
+                <div>
+                    <p class="text-sm text-on-surface-variant mb-3 font-label">Pagination</p>
+                    <nav class="pagination">
+                        <button class="pagination-item" disabled>
+                            <span class="material-symbols-outlined" style="font-size: 18px;">chevron_left</span>
+                        </button>
+                        <button class="pagination-item active">1</button>
+                        <button class="pagination-item">2</button>
+                        <button class="pagination-item">3</button>
+                        <button class="pagination-item">...</button>
+                        <button class="pagination-item">10</button>
+                        <button class="pagination-item">
+                            <span class="material-symbols-outlined" style="font-size: 18px;">chevron_right</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- FAB -->
+    <button class="fab tooltip" data-tooltip="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-item').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.dataset.tab;
+                document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Demo toast
+        setTimeout(() => {
+            const toast = document.createElement('div');
+            toast.className = 'toast success';
+            toast.innerHTML = `
+                <span class="toast-icon material-symbols-outlined">check_circle</span>
+                <div class="toast-content">
+                    <div class="toast-title">Welcome!</div>
+                    <div class="toast-message">Component library loaded successfully</div>
+                </div>
+                <button class="toast-close">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+                </button>
+            `;
+            document.getElementById('toast-container').appendChild(toast);
+            
+            toast.querySelector('.toast-close').addEventListener('click', () => {
+                toast.classList.add('exiting');
+                setTimeout(() => toast.remove(), 300);
+            });
+
+            setTimeout(() => {
+                toast.classList.add('exiting');
+                setTimeout(() => toast.remove(), 300);
+            }, 5000);
+        }, 1000);
+    </script>
+</body>
+</html>

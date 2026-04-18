@@ -1,0 +1,365 @@
+<!doctype html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Component Showcase - Glassmorphic Material 3</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="../styles/main.css" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#f4f6fe",
+              "secondary-fixed-dim": "#c8bbff",
+              "secondary-container": "#49339d",
+              surface: "#0a0e13",
+              background: "#0a0e13",
+              "surface-container-lowest": "#000000",
+              "on-tertiary-container": "#63054a",
+              "on-tertiary-fixed-variant": "#6e1354",
+              "on-secondary-container": "#d4c9ff",
+              "inverse-surface": "#f8f9ff",
+              "primary-container": "#9396ff",
+              "surface-container": "#151a20",
+              "primary-fixed-dim": "#8387ff",
+              "error-container": "#a70138",
+              "surface-variant": "#21262e",
+              "secondary-dim": "#a28efc",
+              "on-tertiary-fixed": "#3b002b",
+              "primary-fixed": "#9396ff",
+              "outline-variant": "#44484e",
+              "on-secondary-fixed-variant": "#533ea7",
+              error: "#ff6e84",
+              tertiary: "#ffa5d9",
+              secondary: "#a28efc",
+              "primary-dim": "#6063ee",
+              "tertiary-dim": "#ef81c4",
+              "on-tertiary": "#701455",
+              outline: "#72767c",
+              primary: "#a3a6ff",
+              "surface-tint": "#a3a6ff",
+              "on-error": "#490013",
+              "on-primary-fixed-variant": "#0e009d",
+              "error-dim": "#d73357",
+              "tertiary-fixed-dim": "#ef81c4",
+              "tertiary-fixed": "#ff8ed2",
+              "inverse-on-surface": "#51555b",
+              "surface-dim": "#0a0e13",
+              "on-primary-container": "#0a0081",
+              "on-primary": "#0f00a4",
+              "surface-bright": "#262d35",
+              "on-primary-fixed": "#000000",
+              "tertiary-container": "#ff8ed2",
+              "on-surface-variant": "#a8abb2",
+              "inverse-primary": "#494bd7",
+              "on-background": "#f4f6fe",
+              "surface-container-high": "#1b2027",
+              "secondary-fixed": "#d6cbff",
+              "on-error-container": "#ffb2b9",
+              "on-secondary-fixed": "#361c89",
+              "surface-container-low": "#0f1419",
+              "surface-container-highest": "#21262e",
+              "on-secondary": "#21006d"
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px"
+            },
+            fontFamily: {
+              headline: ["Outfit"],
+              body: ["DM Sans"],
+              label: ["JetBrains Mono"]
+            }
+          }
+        }
+      };
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+    <!-- Ambient Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[120px] float"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-secondary/10 blur-[120px] float" style="animation-delay: 1s;"></div>
+    </div>
+
+    <!-- Animated Grid Background -->
+    <div class="grid-background"></div>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <main class="relative z-10 pt-12 pb-16 px-8 max-w-screen-2xl mx-auto">
+        <!-- Header -->
+        <header class="mb-12 scale-in">
+            <h1 class="font-headline font-extrabold text-5xl tracking-tight mb-4">
+                <span class="text-gradient-primary neon-text">Glassmorphic</span> Component Showcase
+            </h1>
+            <p class="text-on-surface-variant max-w-2xl font-body slide-in-left">
+                Premium Material 3 design system components for OpenIssue
+            </p>
+        </header>
+
+        <!-- Buttons Section -->
+        <section class="mb-16 slide-in-right">
+            <h2 class="font-headline font-bold text-2xl mb-6">Buttons</h2>
+            <div class="glass-panel p-8 rounded-xl scan-line">
+                <div class="flex flex-wrap gap-4">
+                    <button class="btn-primary-gradient magnetic-btn">Primary Action</button>
+                    <button class="btn-secondary magnetic-btn">Secondary Action</button>
+                    <button class="btn-primary-gradient glow-primary magnetic-btn">
+                        <span class="material-symbols-outlined text-sm mr-2" style="font-variation-settings: 'FILL' 1, 'wght' 400;">star</span>
+                        With Icon
+                    </button>
+                    <button class="btn-primary-gradient ripple magnetic-btn">Ripple Effect</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Repository Cards -->
+        <section class="mb-16 slide-in-left">
+            <h2 class="font-headline font-bold text-2xl mb-6">Repository Cards</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="repo-card group stagger-item border-accent">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="icon-container">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">folder</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="badge" style="background: rgba(162, 142, 252, 0.1); border-color: rgba(162, 142, 252, 0.3); color: #a28efc;">TypeScript</span>
+                            <span class="badge public">Public</span>
+                        </div>
+                    </div>
+                    <h3 class="repo-title font-headline font-bold text-xl mb-2">
+                        openissue-frontend
+                    </h3>
+                    <p class="text-on-surface-variant text-sm font-body line-clamp-2 mb-6">
+                        AI-powered GitHub issue intelligence platform with glassmorphic Material 3 design
+                    </p>
+                    <div class="flex items-center justify-between pt-6 border-t border-white/5">
+                        <div class="flex items-center gap-4 text-xs font-label text-slate-400">
+                            <span class="flex items-center gap-1">
+                                <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1, 'wght' 300;">star</span>
+                                42
+                            </span>
+                            <span>Updated today</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="btn-primary-gradient text-xs">USE</button>
+                            <button class="btn-secondary text-xs">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="repo-card group stagger-item border-accent">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="icon-container">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">folder</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="badge" style="background: rgba(162, 142, 252, 0.1); border-color: rgba(162, 142, 252, 0.3); color: #a28efc;">Python</span>
+                            <span class="badge private">Private</span>
+                        </div>
+                    </div>
+                    <h3 class="repo-title font-headline font-bold text-xl mb-2">
+                        ml-classifier-service
+                    </h3>
+                    <p class="text-on-surface-variant text-sm font-body line-clamp-2 mb-6">
+                        Machine learning service for issue classification and duplicate detection
+                    </p>
+                    <div class="flex items-center justify-between pt-6 border-t border-white/5">
+                        <div class="flex items-center gap-4 text-xs font-label text-slate-400">
+                            <span class="flex items-center gap-1">
+                                <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1, 'wght' 300;">star</span>
+                                18
+                            </span>
+                            <span>Updated 2 days ago</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="btn-primary-gradient text-xs">USE</button>
+                            <button class="btn-secondary text-xs">View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Similarity Bars -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">Similarity Bars</h2>
+            <div class="glass-panel p-8 rounded-xl space-y-8">
+                <div>
+                    <h3 class="font-body font-semibold text-sm mb-3">High Similarity (85%+)</h3>
+                    <div class="similarity-bar-container">
+                        <div class="similarity-bar high" style="width: 92%"></div>
+                    </div>
+                    <p class="similarity-label text-error">92% Match - Likely Duplicate</p>
+                </div>
+
+                <div>
+                    <h3 class="font-body font-semibold text-sm mb-3">Medium Similarity (50-84%)</h3>
+                    <div class="similarity-bar-container">
+                        <div class="similarity-bar medium" style="width: 67%"></div>
+                    </div>
+                    <p class="similarity-label text-orange-500">67% Match - Possible Duplicate</p>
+                </div>
+
+                <div>
+                    <h3 class="font-body font-semibold text-sm mb-3">Low Similarity (<50%)</h3>
+                    <div class="similarity-bar-container">
+                        <div class="similarity-bar low" style="width: 32%"></div>
+                    </div>
+                    <p class="similarity-label text-primary">32% Match - Low Similarity</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badges & Status Indicators -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">Badges & Status</h2>
+            <div class="glass-panel p-8 rounded-xl">
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-body font-semibold text-sm mb-3">Badges</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="badge public">Public</span>
+                            <span class="badge private">Private</span>
+                            <span class="badge">TypeScript</span>
+                            <span class="badge">Python</span>
+                            <span class="badge">React</span>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div>
+                        <h3 class="font-body font-semibold text-sm mb-3">Status Indicators</h3>
+                        <div class="flex flex-wrap gap-6">
+                            <div class="flex items-center gap-2">
+                                <span class="status-dot active"></span>
+                                <span class="text-sm font-label">Active</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="status-dot error"></span>
+                                <span class="text-sm font-label">Error</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="status-dot success"></span>
+                                <span class="text-sm font-label">Success</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Icon Containers -->
+        <section class="mb-16 scale-in">
+            <h2 class="font-headline font-bold text-2xl mb-6">Icon Containers</h2>
+            <div class="glass-panel p-8 rounded-xl holographic">
+                <div class="flex flex-wrap gap-4">
+                    <div class="icon-container breathe">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">folder</span>
+                    </div>
+                    <div class="icon-container breathe" style="animation-delay: 0.5s;">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">content_copy</span>
+                    </div>
+                    <div class="icon-container breathe" style="animation-delay: 1s;">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">shield</span>
+                    </div>
+                    <div class="icon-container breathe rotate-hover" style="animation-delay: 1.5s;">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">auto_awesome</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Text Gradients -->
+        <section class="mb-16 bounce-in">
+            <h2 class="font-headline font-bold text-2xl mb-6">Text Gradients</h2>
+            <div class="glass-panel p-8 rounded-xl">
+                <h3 class="text-gradient-primary font-headline font-extrabold text-4xl mb-4 neon-text">
+                    Primary Gradient Text
+                </h3>
+                <h3 class="text-gradient-secondary font-headline font-extrabold text-4xl">
+                    Secondary Gradient Text
+                </h3>
+            </div>
+        </section>
+
+        <!-- Loading States -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">Loading States & Progress</h2>
+            <div class="glass-panel p-8 rounded-xl space-y-6">
+                <div>
+                    <p class="text-sm text-on-surface-variant mb-3 font-label">Enhanced Skeleton Loader</p>
+                    <div class="space-y-3">
+                        <div class="skeleton-enhanced h-12 w-full"></div>
+                        <div class="skeleton-enhanced h-12 w-3/4"></div>
+                        <div class="skeleton-enhanced h-12 w-1/2"></div>
+                    </div>
+                </div>
+                <div class="divider-gradient"></div>
+                <div>
+                    <p class="text-sm text-on-surface-variant mb-3 font-label">Progress Bar</p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Indicators & Badges -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">Status Indicators</h2>
+            <div class="glass-panel p-8 rounded-xl">
+                <div class="flex flex-wrap gap-4">
+                    <div class="status-indicator">
+                        <span class="status-dot active"></span>
+                        <span>Active</span>
+                    </div>
+                    <div class="status-indicator success">
+                        <span class="status-dot success"></span>
+                        <span>Success</span>
+                    </div>
+                    <div class="status-indicator warning">
+                        <span class="status-dot" style="background: #fb923c;"></span>
+                        <span>Warning</span>
+                    </div>
+                    <div class="status-indicator error">
+                        <span class="status-dot error"></span>
+                        <span>Error</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Input Fields -->
+        <section class="mb-16">
+            <h2 class="font-headline font-bold text-2xl mb-6">Glassmorphic Inputs</h2>
+            <div class="glass-panel p-8 rounded-xl space-y-4">
+                <input type="text" class="glass-input w-full" placeholder="Enter your email..."/>
+                <input type="text" class="glass-input w-full" placeholder="Search repositories..."/>
+                <textarea class="glass-input w-full resize-none" rows="4" placeholder="Write a comment..."></textarea>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Floating Action Button -->
+    <button class="fab tooltip" data-tooltip="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+</body>
+</html>

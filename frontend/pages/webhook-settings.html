@@ -1,0 +1,454 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>OpenIssue - Webhook Settings</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Space_Grotesk:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link href="../css/github.css" rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#f4f6fe",
+              surface: "#0a0e13",
+              background: "#0a0e13",
+              "surface-container": "#151a20",
+              "surface-variant": "#21262e",
+              "secondary-container": "#49339d",
+              "on-secondary-container": "#d4c9ff",
+              primary: "#a3a6ff",
+              "primary-dim": "#6063ee",
+              secondary: "#a28efc",
+              tertiary: "#ffa5d9",
+              error: "#ff6e84",
+              outline: "#72767c",
+              "outline-variant": "#44484e",
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Space Grotesk"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #0a0e13;
+        color: #f4f6fe;
+        font-family: "Inter", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-panel {
+        background: rgba(33, 38, 46, 0.6);
+        backdrop-filter: blur(20px);
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #a3a6ff 0%, #6063ee 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .primary-button-gradient {
+        background: linear-gradient(135deg, #a3a6ff 0%, #6063ee 100%);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface min-h-screen">
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-[#0a0e13]/60 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]"
+    >
+      <div
+        class="flex justify-between items-center h-16 px-8 w-full max-w-screen-2xl mx-auto font-['Manrope'] font-semibold tracking-tight"
+      >
+        <div class="flex items-center gap-8">
+          <span
+            class="text-2xl font-bold tracking-tighter text-white bg-clip-text bg-gradient-to-br from-indigo-400 to-indigo-600"
+            >OpenIssue</span
+          >
+          <div class="flex items-center gap-6">
+            <a
+              class="text-slate-400 hover:text-white transition-colors"
+              href="dashboard.html"
+              >Dashboard</a
+            >
+            <a
+              class="text-slate-400 hover:text-white transition-colors"
+              href="home.html"
+              >Intelligence</a
+            >
+            <a
+              class="text-slate-400 hover:text-white transition-colors"
+              href="conflicts.html"
+              >Conflicts</a
+            >
+            <a
+              class="text-slate-400 hover:text-white transition-colors"
+              href="security.html"
+              >Security</a
+            >
+            <a
+              class="text-slate-400 hover:text-white transition-colors"
+              href="settings.html"
+              >Settings</a
+            >
+            <a
+              class="text-indigo-400 border-b-2 border-indigo-500 pb-1"
+              href="webhook-settings.html"
+              >Webhooks</a
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            id="theme-toggle"
+            class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all duration-300 active:scale-95"
+          >
+            <span class="material-symbols-outlined">light_mode</span>
+          </button>
+          <button
+            class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all duration-300 active:scale-95"
+          >
+            <span class="material-symbols-outlined">notifications</span>
+          </button>
+          <div
+            class="w-8 h-8 rounded-full overflow-hidden border border-white/10 ml-2"
+          >
+            <img
+              alt="User profile avatar"
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=user"
+              class="w-full h-full"
+            />
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24 pb-16 px-8 max-w-screen-2xl mx-auto">
+      <!-- Header -->
+      <header class="mb-12">
+        <div class="space-y-2">
+          <h1
+            class="font-headline font-extrabold text-5xl tracking-tight text-on-surface"
+          >
+            GitHub <span class="text-gradient">Webhooks</span>
+          </h1>
+          <p class="text-on-surface-variant max-w-lg font-body">
+            Set up real-time issue analysis by connecting GitHub webhooks
+          </p>
+        </div>
+      </header>
+
+      <!-- Main Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-8">
+          <!-- Register Webhook Section -->
+          <section
+            class="bg-[#111827] border border-white/10 rounded-lg p-8 transition-all duration-300 hover:border-indigo-500/30"
+          >
+            <div class="flex items-center gap-3 mb-6">
+              <span class="material-symbols-outlined text-primary text-2xl"
+                >webhook</span
+              >
+              <h2 class="font-headline font-bold text-2xl text-white">
+                Register New Webhook
+              </h2>
+            </div>
+
+            <form id="webhook-form" class="space-y-6">
+              <!-- Repository Input -->
+              <div>
+                <label
+                  for="repo-input"
+                  class="block text-sm font-label uppercase tracking-widest text-on-surface-variant mb-2"
+                >
+                  Repository
+                </label>
+                <input
+                  id="repo-input"
+                  type="text"
+                  placeholder="owner/repository"
+                  class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-on-surface placeholder-on-surface-variant focus:border-primary focus:outline-none transition-colors"
+                />
+                <p class="text-xs text-on-surface-variant mt-2">
+                  Format: username/repository (e.g., openissue/core)
+                </p>
+              </div>
+
+              <!-- Event Selection -->
+              <div>
+                <label
+                  class="block text-sm font-label uppercase tracking-widest text-on-surface-variant mb-3"
+                >
+                  Events to Monitor
+                </label>
+                <div class="space-y-3">
+                  <label class="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      name="events"
+                      value="issues"
+                      checked
+                      class="w-4 h-4 rounded bg-white/10 border border-white/20 text-primary focus:ring-primary"
+                    />
+                    <span class="text-sm font-body text-on-surface"
+                      >Issues (opened, edited, reopened)</span
+                    >
+                  </label>
+                  <label class="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      name="events"
+                      value="pull_request"
+                      class="w-4 h-4 rounded bg-white/10 border border-white/20 text-primary focus:ring-primary"
+                    />
+                    <span class="text-sm font-body text-on-surface"
+                      >Pull Requests (opened, edited)</span
+                    >
+                  </label>
+                  <label class="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      name="events"
+                      value="push"
+                      class="w-4 h-4 rounded bg-white/10 border border-white/20 text-primary focus:ring-primary"
+                    />
+                    <span class="text-sm font-body text-on-surface"
+                      >Push events</span
+                    >
+                  </label>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex gap-3 pt-4">
+                <button
+                  type="submit"
+                  class="flex-1 px-6 py-3 rounded-full primary-button-gradient text-on-primary font-headline font-bold justify-center inline-flex items-center gap-2 shadow-lg shadow-primary/20 hover:shadow-lg hover:shadow-primary/40 active:scale-95 transition-all duration-200"
+                >
+                  <span class="material-symbols-outlined text-lg">add</span>
+                  Register Webhook
+                </button>
+              </div>
+
+              <!-- Status Messages -->
+              <div id="form-status" class="hidden"></div>
+            </form>
+          </section>
+
+          <!-- Active Webhooks Section -->
+          <section
+            class="bg-[#111827] border border-white/10 rounded-lg p-8 transition-all duration-300 hover:border-indigo-500/30"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-2xl"
+                  >check_circle</span
+                >
+                <div>
+                  <h2 class="font-headline font-bold text-2xl text-white">
+                    Active Webhooks
+                  </h2>
+                  <p class="text-sm text-on-surface-variant font-body">
+                    Webhooks currently monitoring your repositories
+                  </p>
+                </div>
+              </div>
+              <button
+                id="refresh-webhooks-btn"
+                class="px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 font-label text-xs uppercase tracking-widest text-on-surface transition-all duration-200 flex items-center gap-2"
+              >
+                <span class="material-symbols-outlined text-sm">refresh</span>
+                Refresh
+              </button>
+            </div>
+
+            <!-- Webhooks List -->
+            <div id="webhooks-list" class="space-y-3">
+              <!-- Loading State -->
+              <div class="flex items-center justify-center py-12">
+                <div class="animate-spin">
+                  <span class="material-symbols-outlined text-primary"
+                    >hourglass_top</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Empty State -->
+            <div
+              id="empty-state"
+              class="hidden text-center py-12 text-on-surface-variant"
+            >
+              <span class="material-symbols-outlined text-4xl mb-4 block"
+                >webhook_off</span
+              >
+              <p class="font-body">No webhooks registered yet</p>
+              <p class="text-sm">Register a webhook above to get started</p>
+            </div>
+          </section>
+
+          <!-- Recent Events Section -->
+          <section
+            class="bg-[#111827] border border-white/10 rounded-lg p-8 transition-all duration-300 hover:border-indigo-500/30"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-2xl"
+                  >history</span
+                >
+                <h2 class="font-headline font-bold text-2xl text-white">
+                  Recent Events
+                </h2>
+              </div>
+              <button
+                id="refresh-events-btn"
+                class="px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 font-label text-xs uppercase tracking-widest text-on-surface transition-all duration-200 flex items-center gap-2"
+              >
+                <span class="material-symbols-outlined text-sm">refresh</span>
+                Refresh
+              </button>
+            </div>
+
+            <!-- Events List -->
+            <div id="events-list" class="space-y-2 max-h-96 overflow-y-auto">
+              <!-- Loading State -->
+              <div class="flex items-center justify-center py-12">
+                <div class="animate-spin">
+                  <span class="material-symbols-outlined text-primary"
+                    >hourglass_top</span
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="lg:col-span-1">
+          <!-- Info Card -->
+          <div
+            class="bg-[#111827] border border-white/10 rounded-lg p-6 sticky top-24 space-y-6"
+          >
+            <!-- How It Works -->
+            <div>
+              <h4 class="font-headline font-bold text-white mb-3">
+                How It Works
+              </h4>
+              <ol class="space-y-2 font-body text-sm text-on-surface-variant">
+                <li class="flex gap-2">
+                  <span class="font-bold text-primary">1.</span>
+                  <span>Register webhook for your repository</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="font-bold text-primary">2.</span>
+                  <span>Select events to monitor</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="font-bold text-primary">3.</span>
+                  <span>Issues are analyzed in real-time</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="font-bold text-primary">4.</span>
+                  <span>Labels and comments added automatically</span>
+                </li>
+              </ol>
+            </div>
+
+            <!-- Benefits -->
+            <div class="pt-4 border-t border-white/10">
+              <h4 class="font-headline font-bold text-white mb-3">Benefits</h4>
+              <ul class="space-y-2 font-body text-sm text-on-surface-variant">
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-primary text-sm mt-0.5"
+                    >check</span
+                  >
+                  <span>Real-time analysis</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-primary text-sm mt-0.5"
+                    >check</span
+                  >
+                  <span>Automatic labeling</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-primary text-sm mt-0.5"
+                    >check</span
+                  >
+                  <span>Duplicate detection</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-primary text-sm mt-0.5"
+                    >check</span
+                  >
+                  <span>Security scanning</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Documentation Link -->
+            <div class="pt-4 border-t border-white/10">
+              <a
+                href="#"
+                class="text-primary hover:text-primary-dim transition-colors text-sm font-body flex items-center gap-2"
+              >
+                <span class="material-symbols-outlined text-sm">help</span>
+                View documentation
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="mt-20 py-12 px-8 border-t border-white/5 max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8"
+    >
+      <div class="flex flex-col gap-2">
+        <span class="font-headline font-black text-white text-lg"
+          >OpenIssue</span
+        >
+        <p class="text-slate-500 text-sm font-label">
+          The Digital Curator for Engineering Teams
+        </p>
+      </div>
+      <div
+        class="flex gap-12 font-label text-xs uppercase tracking-widest text-slate-400"
+      >
+        <a class="hover:text-primary transition-colors" href="#">Privacy</a>
+        <a class="hover:text-primary transition-colors" href="#">Security</a>
+        <a class="hover:text-primary transition-colors" href="#">Changelog</a>
+        <a class="hover:text-primary transition-colors" href="#">Docs</a>
+      </div>
+    </footer>
+
+    <script src="../js/webhook-settings.js"></script>
+    <script src="../js/accessibility.js"></script>
+  </body>
+</html>

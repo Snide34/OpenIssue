@@ -1,0 +1,116 @@
+name: OpenIssue Security Scan
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  pull-requests: write
+
+jobs:
+  security-scan:
+    name: Security Vulnerability Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install OpenIssue CLI
+        run: |
+          pip install --upgrade pip
+          cd cli
+          pip install -e .
+      
+      - name: Run Security Scan
+        id: scan
+        run: |
+          python -m openissue.cli scan . --sarif results.sarif --json > scan-results.json || true
+          cat scan-results.json
+        continue-on-error: true
+      
+      - name: Upload SARIF to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: results.sarif
+          category: openissue-security
+      
+      - name: Check for Critical Vulnerabilities
+        run: |
+          CRITICAL=$(cat scan-results.json | python -c "import sys, json; data=json.load(sys.stdin); print(data.get('severity_counts', {}).get('CRITICAL', 0))")
+          HIGH=$(cat scan-results.json | python -c "import sys, json; data=json.load(sys.stdin); print(data.get('severity_counts', {}).get('HIGH', 0))")
+          
+          echo "Critical: $CRITICAL"
+          echo "High: $HIGH"
+          
+          if [ "$CRITICAL" -gt "0" ]; then
+            echo "❌ CRITICAL vulnerabilities found! Failing build."
+            exit 1
+          fi
+          
+          if [ "$HIGH" -gt "0" ]; then
+            echo "⚠️  HIGH vulnerabilities found. Review recommended."
+          fi
+          
+          echo "✅ No critical vulnerabilities found"
+      
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const results = JSON.parse(fs.readFileSync('scan-results.json', 'utf8'));
+            
+            const total = results.total || 0;
+            const critical = results.severity_counts?.CRITICAL || 0;
+            const high = results.severity_counts?.HIGH || 0;
+            const medium = results.severity_counts?.MEDIUM || 0;
+            
+            let emoji = '✅';
+            let status = 'PASSED';
+            if (critical > 0) {
+              emoji = '❌';
+              status = 'FAILED';
+            } else if (high > 0) {
+              emoji = '⚠️';
+              status = 'WARNING';
+            }
+            
+            const comment = `## ${emoji} OpenIssue Security Scan ${status}
+            
+            **Total Vulnerabilities:** ${total}
+            
+            | Severity | Count |
+            |----------|-------|
+            | 🔴 Critical | ${critical} |
+            | 🟠 High | ${high} |
+            | 🟡 Medium | ${medium} |
+            
+            ${critical > 0 ? '⚠️ **Action Required:** Fix critical vulnerabilities before merging!' : ''}
+            ${high > 0 ? '⚠️ **Recommended:** Review and fix high severity issues.' : ''}
+            ${total === 0 ? '🎉 **Great job!** No vulnerabilities detected.' : ''}
+            
+            [View detailed results in Security tab](https://github.com/${{ github.repository }}/security/code-scanning)
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
