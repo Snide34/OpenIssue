@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "OpenIssue Security Scanner",
+          "version": "1.0.0",
+          "informationUri": "https://github.com/yourusername/openissue",
+          "rules": []
+        }
+      },
+      "results": [],
+      "columnKind": "utf16CodeUnits",
+      "properties": {
+        "scannedFiles": 0,
+        "totalVulnerabilities": 0,
+        "severityCounts": {
+          "CRITICAL": 0,
+          "HIGH": 0,
+          "MEDIUM": 0,
+          "LOW": 0
+        },
+        "scanDate": "2026-04-22T17:25:08.412388Z"
+      }
+    }
+  ]
+}
