@@ -1,0 +1,70 @@
+# PERFECT ASCII ART BOXES - Each content line is EXACTLY 74 characters
+
+## Box 1: No Vulnerabilities (Plain)
+╔══════════════════════════════════════════════════════════════════════════╗
+║                                                                          ║
+║    ✅ NO VULNERABILITIES FOUND!                                          ║
+║                                                                          ║
+║    🎉 Your code looks secure! Great job maintaining security standards.  ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+## Box 2: Scan Initiated
+╔══════════════════════════════════════════════════════════════════════════╗
+║                       🔍 SECURITY SCAN INITIATED!                        ║
+║                                                                          ║
+║    Scanning: /path/to/project                                            ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+## Box 3: AI Fix Generation
+╔══════════════════════════════════════════════════════════════════════════╗
+║                       🤖 AI FIX GENERATION ACTIVE                        ║
+║                                                                          ║
+║    Generating intelligent fix suggestions using AI...                    ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+## Box 4: Vulnerabilities Detected
+╔══════════════════════════════════════════════════════════════════════════╗
+║                        VULNERABILITIES DETECTED                          ║
+║                                                                          ║
+║    Total Found:   5                                                      ║
+║                                                                          ║
+║    🔴 CRITICAL :   2                                                      ║
+║    🟠 HIGH     :   1                                                      ║
+║    🟡 MEDIUM   :   2                                                      ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+## Box 5: Scan Completed
+╔══════════════════════════════════════════════════════════════════════════╗
+║                           ✅ SCAN COMPLETED                              ║
+║                                                                          ║
+║    Security scan finished successfully! No critical issues found.        ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+## Box 6: Build Failed
+╔══════════════════════════════════════════════════════════════════════════╗
+║                            ❌ BUILD FAILED                               ║
+║                                                                          ║
+║    Critical vulnerabilities detected! Please fix before proceeding.      ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+## Box 7: Posting Issue
+╔══════════════════════════════════════════════════════════════════════════╗
+║                          📝 POSTING ISSUE                                ║
+║                                                                          ║
+║    Title: Security vulnerability found in authentication module          ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+## Box 8: Issue Posted Successfully
+╔══════════════════════════════════════════════════════════════════════════╗
+║                       ✅ ISSUE POSTED SUCCESSFULLY                       ║
+║                                                                          ║
+║    Your issue has been submitted to the OpenIssue backend.               ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
