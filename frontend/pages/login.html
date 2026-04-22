@@ -259,10 +259,40 @@
       </svg>
     </div>
   </body>
+  <script src="../js/api.js"></script>
+  <script src="../js/errorHandler.js"></script>
   <script>
-    document.querySelector('button[class*="primary-glow"]').onclick =
-      function () {
-        window.location.href = "home.html";
-      };
+    // Handle GitHub login
+    document.querySelector('button[class*="primary-glow"]').onclick = function () {
+      // Redirect to GitHub OAuth
+      window.location.href = api.getGitHubLoginURL();
+    };
+
+    // Check if already logged in
+    if (api.isAuthenticated()) {
+      window.location.href = "dashboard.html";
+    }
+
+    // Handle OAuth callback
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const state = params.get('state');
+
+    if (code && state) {
+      errorHandler.showLoading('Authenticating with GitHub...');
+      
+      api.handleOAuthCallback(code, state)
+        .then(() => {
+          errorHandler.hideLoading();
+          errorHandler.success('Successfully logged in!');
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 1000);
+        })
+        .catch((error) => {
+          errorHandler.hideLoading();
+          errorHandler.handleAPIError(error);
+        });
+    }
   </script>
 </html>
